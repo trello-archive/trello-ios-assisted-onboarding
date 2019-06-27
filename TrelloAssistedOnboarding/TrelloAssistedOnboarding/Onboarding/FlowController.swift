@@ -48,7 +48,7 @@ final class FlowController: NSObject, UINavigationControllerDelegate {
     }
 
     func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
-        return UIDevice.isPad ? .all : .portrait
+        return (UIDevice.current.userInterfaceIdiom == .pad) ? .all : .portrait
     }
     
 }
