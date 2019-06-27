@@ -108,6 +108,8 @@ class OverlayViewGestureController {
                 )
             case .possible:
                 break
+            @unknown default:
+                break
             }
         }).disposed(by: self.disposeBag)
     }

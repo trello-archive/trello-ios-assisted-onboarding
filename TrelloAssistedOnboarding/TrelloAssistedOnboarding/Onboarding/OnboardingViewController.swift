@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// This View Controller is the main Mad Libs screen with the board/lists/cards in the background and an overlay view
+/// This View Controller is the main screen with the board/lists/cards in the background and an overlay view
 /// that describes what you should do (and offers a button to do the step and a skip).
 ///
 /// This class is in an MVVM relationship with OnboardingViewModel and they are connected with Rx. The general pattern
@@ -102,7 +102,7 @@ class OnboardingViewController: UIViewController {
     /// 2. Give them to the VM and have it transform them into output drivers
     /// 3. Bind the drivers to the view properties
     ///
-    /// All logic about how Mad Libs progresses from step to step is in the VM.
+    /// All logic about how the VC progresses from step to step is in the VM.
     private func bindUI() {
         /******** Create the Input for the OnboardingViewModel and receive an Output to Drive UI elements ********/
 
@@ -375,10 +375,12 @@ class OnboardingViewController: UIViewController {
     /// Sets up the auto-layout constraints
     private func constrainViews() {
         // The board view is a scroll view that scrolls in both directions (mostly when in compact UI and large text/small devices)
-        self.boardViewLeadingConstraint = (self.boardView.leadingAnchor |== self.view.leadingAnchor |+ self.stylesheet.gridUnit * 2)
-        self.boardView.trailingAnchor |== self.view.trailingAnchor |- self.stylesheet.gridUnit
-        self.boardView.topAnchor |== self.view.safeAreaLayoutGuide.topAnchor |+ stylesheet.gridUnit
-        self.boardViewBottomConstraint = (self.boardView.bottomAnchor |== self.view.bottomAnchor |+ self.stylesheet.gridUnit)
+        self.boardViewLeadingConstraint = (self.boardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: self.stylesheet.gridUnit * 2))
+        self.boardViewLeadingConstraint.isActive = true
+        self.boardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -self.stylesheet.gridUnit).isActive = true
+        self.boardView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: stylesheet.gridUnit).isActive = true
+        self.boardViewBottomConstraint = (self.boardView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.stylesheet.gridUnit))
+        self.boardViewBottomConstraint.isActive = true
 
         constrainViewsForCompactWidth()
         constrainViewsForRegularWidth()
@@ -399,18 +401,24 @@ class OnboardingViewController: UIViewController {
         for (index, overlay) in self.compactUI.overlays.enumerated() {
             // We make .defaultLow leading anchors so that the rubberbanding gesture can override
             if let previousOverlay = previousOverlay {
-                overlay.leadingAnchor |== previousOverlay.trailingAnchor ~ .defaultLow
+                let c = overlay.leadingAnchor.constraint(equalTo: previousOverlay.trailingAnchor)
+                c.priority = .defaultLow
+                c.isActive = true
             } else {
-                self.compactUI.overlayLeadingConstraint = (overlay.leadingAnchor |== self.view.leadingAnchor ~ .defaultLow)
+                self.compactUI.overlayLeadingConstraint = (overlay.leadingAnchor.constraint(equalTo: self.view.leadingAnchor))
+                self.compactUI.overlayLeadingConstraint.priority = .defaultLow
+                self.compactUI.overlayLeadingConstraint.isActive = true
             }
 
-            overlay.widthAnchor |== self.view.widthAnchor |* 1
-            overlay.bottomAnchor |== self.view.bottomAnchor
+            overlay.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+            overlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
             // Make the overlay fit the content, but try not to cover the whole board
-            overlay.heightAnchor |<= self.view.heightAnchor |* 0.6
+            overlay.heightAnchor.constraint(lessThanOrEqualTo: self.view.heightAnchor, multiplier: 0.6).isActive = true
             self.compactUI.overlayHeightConstraints[index] =
-                (overlay.heightAnchor |== overlay.contentView.heightAnchor |+ compactOverlayHeightConstant() ~ .defaultLow)
+                (overlay.heightAnchor.constraint(equalTo: overlay.contentView.heightAnchor, constant: compactOverlayHeightConstant()))
+            self.compactUI.overlayHeightConstraints[index].priority = .defaultLow
+            self.compactUI.overlayHeightConstraints[index].isActive = true
 
             previousOverlay = overlay
         }
@@ -429,13 +437,15 @@ class OnboardingViewController: UIViewController {
 
     private func constrainViewsForRegularWidth() {
         for overlay in self.regularUI.overlays {
-            overlay.leadingAnchor |== self.view.leadingAnchor |+ stylesheet.gridUnit
-            overlay.widthAnchor |== self.stylesheet.overlayRegularWidth
-            overlay.topAnchor |== self.boardView.topAnchor
+            overlay.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: stylesheet.gridUnit).isActive = true
+            overlay.widthAnchor.constraint(equalToConstant: self.stylesheet.overlayRegularWidth).isActive = true
+            overlay.topAnchor.constraint(equalTo: self.boardView.topAnchor).isActive = true
 
             // Make the overlay fit the content, but not be bigger than the board it's next to.
-            overlay.heightAnchor |== overlay.contentView.heightAnchor |+ (stylesheet.overlayCornerRadius + stylesheet.gridUnit) ~ .defaultLow
-            overlay.heightAnchor |<= self.boardView.heightAnchor |* 1
+            let c = overlay.heightAnchor.constraint(equalTo: overlay.contentView.heightAnchor, constant: (stylesheet.overlayCornerRadius + stylesheet.gridUnit))
+            c.priority = .defaultLow
+            c.isActive = true
+            overlay.heightAnchor.constraint(lessThanOrEqualTo: self.boardView.heightAnchor).isActive = true
         }
     }
 

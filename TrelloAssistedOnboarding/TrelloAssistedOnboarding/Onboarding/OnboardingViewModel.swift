@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -241,7 +242,7 @@ class OnboardingViewModel: IOViewModelType {
                       accessibilityScreenChanged: accessibilityScreenChanged)
     }
     
-    /// Describes the current state of the overall Mad Libs Flow
+    /// Describes the current state of the overall  Flow
     private func flowStep(_ input: Input) -> Observable<FlowStep> {
 
         // Create observables that have nexts when their respective skip button is tapped.

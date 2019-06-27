@@ -8,7 +8,7 @@
 
 import Foundation
 
-// This represents the Mad Libs overall flow which should only go forward not backwards.
+// This represents the overall flow which should only go forward not backwards.
 enum FlowStep: Int, CaseIterable, Comparable {
     case begin
     case nameBoard
@@ -25,9 +25,8 @@ enum FlowStep: Int, CaseIterable, Comparable {
 }
 
 /// All of the strings are placeholders -- we'll move to .strings when we get real copy (so we avoid translations)
-/// TODO: i18n this
 
-/// This represents a step in the Mad Libs onboarding process that is requires an overlay to built to describe it.
+/// This represents a step in the onboarding process that is requires an overlay to built to describe it.
 enum OverlayStep: Int, CaseIterable, Comparable {
     case describeBoard
     case describeList

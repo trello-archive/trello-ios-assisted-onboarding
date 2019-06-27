@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// A view for showing a Trello-like card front on the Mad Libs onboarding UI.
+/// A view for showing a Trello-like card front on the onboarding UI.
 class CardView: UIView {
     @available(*, unavailable) required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -27,7 +27,7 @@ class CardView: UIView {
         self.layer.cornerRadius = stylesheet.cardCornerRadius
     }
     
-    /// Creates a Mad Libs list with a given name and number of cards
+    /// Creates a list with a given name and number of cards
     /// - Parameters:
     ///     - name: the name of the list
     ///     - numCards: the number of cards to create for the list
@@ -45,13 +45,13 @@ class CardView: UIView {
         self.cardTitleTextField.textAlignment = .natural
         self.cardTitleTextField.adjustsFontForContentSizeCategory = true
         self.cardTitleTextField.returnKeyType = .done
-        self.cardTitleTextField.topAnchor |== self.topAnchor
-        self.cardTitleTextField.leadingAnchor |== self.leadingAnchor
-        self.cardTitleTextField.trailingAnchor |== self.trailingAnchor
-        self.cardTitleTextField.bottomAnchor |== self.bottomAnchor
+        self.cardTitleTextField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.cardTitleTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.cardTitleTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.cardTitleTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
-        self.heightConstraint = self.cardTitleTextField.heightAnchor |== stylesheet.gridUnit * 11
-
+        self.heightConstraint = self.cardTitleTextField.heightAnchor.constraint(equalToConstant: stylesheet.gridUnit * 11)
+        self.heightConstraint?.isActive = true
         let layer = self.cardTitleTextField.layer
         layer.shadowColor = stylesheet.shadowColor
         layer.shadowOpacity = 0.25

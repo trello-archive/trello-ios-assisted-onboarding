@@ -112,29 +112,29 @@ class BoardTemplatePickerViewController: UIViewController {
         let contentGuide = scrollView.contentLayoutGuide
         
         // While not required to ensure only vertical scrolling, this squashes a constraint ambiguity in the View Hierarchy Debugger
-        frameGuide.widthAnchor |== contentGuide.widthAnchor |* 1
+        frameGuide.widthAnchor.constraint(equalTo: contentGuide.widthAnchor).isActive = true
         
-        frameGuide.topAnchor |== view.safeAreaLayoutGuide.topAnchor
-        frameGuide.leadingAnchor |== view.leadingAnchor
-        frameGuide.trailingAnchor |== view.trailingAnchor
-        frameGuide.bottomAnchor |== view.bottomAnchor
+        frameGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        frameGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        frameGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        frameGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        welcomeLabel.topAnchor |== contentGuide.topAnchor |+ stylesheet.welcomeTopMargin
-        welcomeLabel.centerXAnchor |== frameGuide.centerXAnchor
-        welcomeLabel.widthAnchor |<= view.widthAnchor |* stylesheet.templateWelcomeLabelWidthRatio
+        welcomeLabel.topAnchor.constraint(equalTo: contentGuide.topAnchor, constant: stylesheet.welcomeTopMargin).isActive = true
+        welcomeLabel.centerXAnchor.constraint(equalTo: frameGuide.centerXAnchor).isActive = true
+        welcomeLabel.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: stylesheet.templateWelcomeLabelWidthRatio).isActive = true
         
-        getStartedLabel.topAnchor |== welcomeLabel.bottomAnchor |+ stylesheet.getStartedTopMargin
-        getStartedLabel.centerXAnchor |== frameGuide.centerXAnchor
-        getStartedLabel.widthAnchor |<= frameGuide.widthAnchor |* stylesheet.templateGetStartedLabelWidthRatio
+        getStartedLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: stylesheet.getStartedTopMargin).isActive = true
+        getStartedLabel.centerXAnchor.constraint(equalTo: frameGuide.centerXAnchor).isActive = true
+        getStartedLabel.widthAnchor.constraint(lessThanOrEqualTo: frameGuide.widthAnchor, multiplier: stylesheet.templateGetStartedLabelWidthRatio).isActive = true
 
-        boardTemplateButtonsStackView.topAnchor |== getStartedLabel.bottomAnchor |+ stylesheet.buttonGroupTopMargin
-        boardTemplateButtonsStackView.widthAnchor |== getStartedLabel.widthAnchor |* stylesheet.templateButtonStackWidthRatio
-        boardTemplateButtonsStackView.centerXAnchor |== getStartedLabel.centerXAnchor
+        boardTemplateButtonsStackView.topAnchor.constraint(equalTo: getStartedLabel.bottomAnchor, constant: stylesheet.buttonGroupTopMargin).isActive = true
+        boardTemplateButtonsStackView.widthAnchor.constraint(equalTo: getStartedLabel.widthAnchor, multiplier: stylesheet.templateButtonStackWidthRatio).isActive = true
+        boardTemplateButtonsStackView.centerXAnchor.constraint(equalTo: getStartedLabel.centerXAnchor).isActive = true
 
-        skipToTrelloButton.topAnchor |== boardTemplateButtonsStackView.bottomAnchor |+ stylesheet.skipToTrelloButtonTopMargin
-        skipToTrelloButton.centerXAnchor |== frameGuide.centerXAnchor
-        skipToTrelloButton.widthAnchor |== getStartedLabel.widthAnchor |* 1
-        skipToTrelloButton.bottomAnchor |== contentGuide.bottomAnchor |- stylesheet.skipToTrelloButtonBottomMargin
+        skipToTrelloButton.topAnchor.constraint(equalTo: boardTemplateButtonsStackView.bottomAnchor, constant: stylesheet.skipToTrelloButtonTopMargin).isActive = true
+        skipToTrelloButton.centerXAnchor.constraint(equalTo: frameGuide.centerXAnchor).isActive = true
+        skipToTrelloButton.widthAnchor.constraint(equalTo: getStartedLabel.widthAnchor).isActive = true
+        skipToTrelloButton.bottomAnchor.constraint(equalTo: contentGuide.bottomAnchor, constant: -stylesheet.skipToTrelloButtonBottomMargin).isActive = true
     }
     
     func boardTemplateButtonTapped(_ boardTemplate: BoardTemplate) {
@@ -177,7 +177,7 @@ class BoardTemplateButton: UIButton {
     
     func configureViews() {
         self.disclosure.addGestureRecognizer(tap)
-        view.backgroundColor = .white
+        self.backgroundColor = .white
         
         layer.cornerRadius = stylesheet.buttonCornerRadius
         layer.shadowColor = stylesheet.shadowColor
@@ -201,19 +201,19 @@ class BoardTemplateButton: UIButton {
     }
     
     func constrainViews() {
-        templateNameLabel.topAnchor |== topAnchor |+ stylesheet.buttonOuterMargin
-        templateNameLabel.leadingAnchor |== leadingAnchor |+ stylesheet.buttonOuterMargin
-        templateNameLabel.trailingAnchor |== disclosure.leadingAnchor |- stylesheet.gridUnit
-        templateNameLabel.bottomAnchor |== bottomAnchor |- stylesheet.buttonOuterMargin
+        templateNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: stylesheet.buttonOuterMargin).isActive = true
+        templateNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: stylesheet.buttonOuterMargin).isActive = true
+        templateNameLabel.trailingAnchor.constraint(equalTo: disclosure.leadingAnchor, constant: -stylesheet.gridUnit).isActive = true
+        templateNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -stylesheet.buttonOuterMargin).isActive = true
 
-        disclosure.trailingAnchor |== trailingAnchor |- stylesheet.buttonOuterMargin
-        disclosure.centerYAnchor |== centerYAnchor
-        disclosure.widthAnchor |== disclosure.heightAnchor |* 1
+        disclosure.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -stylesheet.buttonOuterMargin).isActive = true
+        disclosure.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        disclosure.widthAnchor.constraint(equalTo: disclosure.heightAnchor).isActive = true
         
-        arrowLabel.topAnchor |== disclosure.topAnchor
-        arrowLabel.leadingAnchor |== disclosure.leadingAnchor
-        arrowLabel.trailingAnchor |== disclosure.trailingAnchor
-        arrowLabel.bottomAnchor |== disclosure.bottomAnchor
+        arrowLabel.topAnchor.constraint(equalTo: disclosure.topAnchor).isActive = true
+        arrowLabel.leadingAnchor.constraint(equalTo: disclosure.leadingAnchor).isActive = true
+        arrowLabel.trailingAnchor.constraint(equalTo: disclosure.trailingAnchor).isActive = true
+        arrowLabel.bottomAnchor.constraint(equalTo: disclosure.bottomAnchor).isActive = true
     }
     
     override func layoutSubviews() {
@@ -232,6 +232,8 @@ extension Reactive where Base: BoardTemplateButton {
                     return true
                 case .possible, .began, .changed, .cancelled, .failed:
                     return false
+                @unknown default:
+                    fatalError()
                 }
             }
             .map {_ in ()}

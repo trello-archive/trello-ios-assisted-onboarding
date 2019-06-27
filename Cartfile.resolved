@@ -1,1 +1,2 @@
 github "ReactiveX/RxSwift" "4.5.0"
+github "devxoul/RxViewController" "1.0.0"

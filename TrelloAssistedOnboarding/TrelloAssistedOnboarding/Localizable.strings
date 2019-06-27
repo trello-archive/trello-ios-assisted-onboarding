@@ -1,0 +1,320 @@
+/* 
+  Localizable.strings
+  TrelloAssistedOnboarding
+
+  Created by Lou Franco on 6/27/19.
+  Copyright © 2019 Trello. All rights reserved.
+*/
+
+
+
+/* A default name for an Untitled Board (use title case if your language supports that) */
+"default_board_title" = "Untitled Board";
+
+/* A default name for a "To Do" list on a default board (use title case if your language supports that) */
+"default_board_list_to_do" = "Things To Do";
+
+/* A default name for an Untitled Card (use title case if your language supports that) */
+"default_board_card_untitled" = "Untitled Card";
+
+/* A default name for a "Doing" list on a default board (use title case if your language supports that) */
+"default_board_list_doing" = "Doing";
+
+/* A default name for a "Done" list on a default board (use title case if your language supports that) */
+"default_board_list_done" = "Done";
+
+/* Skip step navigation button */
+"skip_button" = "Skip";
+
+/* Finish the onboarding guidance navigation button */
+"finish_button" = "Finish";
+
+/* Next List navigation button */
+"next_list_button" = "Next List";
+
+/* Next Card navigation button */
+"next_card_button" = "Next Card";
+
+/* Accessibility label for the board name text field */
+"board_name_text_field_accessibility" = "Board name";
+
+/* Accessibility label for the list name text fields */
+"list_name_text_field_accessibility" = "List name";
+
+/* Accessibility label for the card title text fields */
+"card_title_text_field_accessibility" = "Card title";
+
+/* Text for the back button */
+"start_over_back_button" = "Start Over";
+
+/* Text for the template picker welcome label */
+"welcome_label" = "Welcome to Trello!";
+
+/* Text for the template picker get started label */
+"get_started_label" = "How would you like to get started?";
+
+/* Text for the template picker skip to trello button */
+"skip_to_trello_button" = "I just want to start using Trello";
+
+/* Text shown on a button on the onboarding guidance screen to let the user name the board. Please keep short. */
+"overlay_name_your_board"="Name Your Board";
+
+/* Text shown on a button on the onboarding guidance screen to let the user name the lists. Please keep short. */
+"overlay_name_your_lists"="Name Your Lists";
+
+/* Text shown on a button on the onboarding guidance screen to let the user add some cards. Please keep short. */
+"overlay_add_cards"="Add a Few Cards";
+
+/* Text shown on a button on the onboarding guidance screen to let the user go the board they created. Please keep short. */
+"overlay_go_to_board"="Go to My Board";
+
+/** "Plan an event */
+
+/* Text shown on a button as a type of project you might want to do in Trello. Will then allow you to build a Trello board to plan an event. */
+"project_plan_an_event"="Plan an Event";
+
+/* Title shown on the screen that is going to help you make an event planning board with Trello */
+"project_plan_an_event_board_overlay_title"="Let Trello help you plan the big day";
+
+/* Text shown on the screen that is going to help you make an event planning board with Trello */
+"project_plan_an_event_board_overlay_subtitle"="Name your Board for your big event.";
+
+/* The default board name that is used on a template to help you plan an event in Trello */
+"project_plan_an_event_board_name"="Music Festival Planning";
+
+/* Title shown on the screen that is going to help you name your lists for an event planning board on Trello */
+"project_plan_an_event_list_overlay_title"="Get organized with lists";
+
+/* Text shown on the screen that is going to help you name your lists for an event planning board on Trello */
+"project_plan_an_event_list_overlay_subtitle"="Lists help you organize your ideas, group tasks, manage the stages of projects, and more.";
+
+/* The default 1st list name that is used on a template to help you plan an event in Trello. Try to keep this short, it will not wrap. */
+"project_plan_an_event_list_1_name"="To Do";
+
+/* The default 2nd list name that is used on a template to help you plan an event in Trello. Try to keep this short, it will not wrap. */
+"project_plan_an_event_list_2_name"="Venues";
+
+/* The default 3rd list name that is used on a template to help you plan an event in Trello. Try to keep this short, it will not wrap. */
+"project_plan_an_event_list_3_name"="Bands";
+
+/* Title shown on the screen that is going to help you name your cards for an event planning board on Trello */
+"project_plan_an_event_card_overlay_title"="Cards help make sure no idea is left behind";
+
+/* Text shown on the screen that is going to help you name your cards for an event planning board on Trello */
+"project_plan_an_event_card_overlay_subtitle"="Cards help you organize possible venues, bands, and everything you need to do for your event.";
+
+/* The default 1st card name that is used on a template to help you plan an event in Trello */
+"project_plan_an_event_card_1_name"="Select festival dates";
+
+/* The default 2nd card name that is used on a template to help you plan an event in Trello */
+"project_plan_an_event_card_2_name"="Research venues";
+
+/* The default 3rd card name that is used on a template to help you plan an event in Trello */
+"project_plan_an_event_card_3_name"="Secure bands";
+
+/* Title shown on the screen that is going to let you make the event planning board on Trello */
+"project_plan_an_event_create_overlay_title"="Your plan is off to a great start!";
+
+/* Text shown on the screen that is going to let you make the event planning board on Trello */
+"project_plan_an_event_create_overlay_subtitle"="Now that you understand boards, lists, and cards, you’re ready to dive into Trello!\n\nSet up your free Trello account to keep planning your event.";
+
+/** "Track a goal */
+
+/* Text shown on a button as a type of project you might want to do in Trello. Will then allow you to build a Trello board to track a goal. */
+"project_track_a_goal"="Track a Goal";
+
+/* Title shown on the screen that is going to help you make a goal tracking board with Trello. This means the same as "Accomplish your goals with a Trello board" */
+"project_track_a_goal_board_overlay_title"="Tackle your goals with a Trello board";
+
+/* Text shown on the screen that is going to help you make a goal tracking board with Trello */
+"project_track_a_goal_board_overlay_subtitle"="Name your Board for the goal you want to achieve.";
+
+/* The default board name that is used on a template to help you track a goal in Trello */
+"project_track_a_goal_board_name"="Run a Marathon";
+
+/* Title shown on the screen that is going to help you name your lists for a goal tracking board on Trello */
+"project_track_a_goal_list_overlay_title"="Get organized with lists";
+
+/* Text shown on the screen that is going to help you name your lists for a goal tracking board on Trello */
+"project_track_a_goal_list_overlay_subtitle"="Lists help you organize your ideas, group tasks, manage the stages of projects, and  more.";
+
+/* The default 1st list name that is used on a template to help you track a goal in Trello. Try to keep this short, it will not wrap. */
+"project_track_a_goal_list_1_name"="To Do";
+
+/* The default 2nd list name that is used on a template to help you track a goal in Trello. Try to keep this short, it will not wrap. */
+"project_track_a_goal_list_2_name"="Doing";
+
+/* The default 3rd list name that is used on a template to help you track a goal in Trello. Try to keep this short, it will not wrap. */
+"project_track_a_goal_list_3_name"="Done";
+
+/* Title shown on the screen that is going to help you name your cards for a goal tracking board on Trello */
+"project_track_a_goal_card_overlay_title"="Break down your big goal";
+
+/* Text shown on the screen that is going to help you name your cards for a goal tracking board on Trello */
+"project_track_a_goal_card_overlay_subtitle"="Use cards to plan the steps needed to achieve your goal!";
+
+/* The default 1st card name that is used on a template to help you track a goal in Trello */
+"project_track_a_goal_card_1_name"="Register for race";
+
+/* The default 2nd card name that is used on a template to help you track a goal in Trello */
+"project_track_a_goal_card_2_name"="Training schedule";
+
+/* The default 3rd card name that is used on a template to help you track a goal in Trello */
+"project_track_a_goal_card_3_name"="Cross the finish line!";
+
+/* Title shown on the screen that is going to let you make the goal tracking board on Trello */
+"project_track_a_goal_create_overlay_title"="You’re ready to crush your goals!";
+
+/* Text shown on the screen that is going to let you make the goal tracking board on Trello */
+"project_track_a_goal_create_overlay_subtitle"="Now that you understand boards, lists, and cards, you’re ready to dive into Trello!\n\nSet up your free Trello account to start tackling your goals!";
+
+/** "Manage a project */
+
+/* Text shown on a button as a type of project you might want to do in Trello. Will then allow you to build a Trello board to manage a project. */
+"project_manage_a_project"="Manage a Project";
+
+/* Title shown on the screen that is going to help you make a project management board with Trello */
+"project_manage_a_project_board_overlay_title"="Help your team stay on track with a Trello board";
+
+/* Text shown on the screen that is going to help you make a project management board with Trello */
+"project_manage_a_project_board_overlay_subtitle"="Name your board after the project you’re managing.";
+
+/* The default board name that is used on a template to help you manage a project in Trello */
+"project_manage_a_project_board_name"="Product Launch";
+
+/* Title shown on the screen that is going to help you name your lists for a project management board on Trello */
+"project_manage_a_project_list_overlay_title"="Get organized with lists!";
+
+/* Text shown on the screen that is going to help you name your lists for a project management board on Trello */
+"project_manage_a_project_list_overlay_subtitle"="Lists help you organize ideas, team tasks, the stages of a project, and more!";
+
+/* The default 1st list name that is used on a template to help you manage a project in Trello. Try to keep this short, it will not wrap. */
+"project_manage_a_project_list_1_name"="To Do";
+
+/* The default 2nd list name that is used on a template to help you manage a project in Trello. Try to keep this short, it will not wrap. */
+"project_manage_a_project_list_2_name"="In Progress";
+
+/* The default 3rd list name that is used on a template to help you manage a project in Trello. Try to keep this short, it will not wrap. */
+"project_manage_a_project_list_3_name"="Done";
+
+/* Title shown on the screen that is going to help you name your cards for a project management board on Trello */
+"project_manage_a_project_card_overlay_title"="Break down big projects with cards";
+
+/* Text shown on the screen that is going to help you name your cards for a project management board on Trello */
+"project_manage_a_project_card_overlay_subtitle"="Create cards for tasks, ideas, and anything that needs to get done.";
+
+/* The default 1st card name that is used on a template to help you manage a project in Trello */
+"project_manage_a_project_card_1_name"="Build Website";
+
+/* The default 2nd card name that is used on a template to help you manage a project in Trello */
+"project_manage_a_project_card_2_name"="Train Sales";
+
+/* The default 3rd card name that is used on a template to help you manage a project in Trello */
+"project_manage_a_project_card_3_name"="Begin Ad Campaign";
+
+/* Title shown on the screen that is going to let you make the project management board on Trello */
+"project_manage_a_project_create_overlay_title"="Way to go, Trello pro!";
+
+/* Text shown on the screen that is going to let you make the project management board on Trello */
+"project_manage_a_project_create_overlay_subtitle"="Now that you understand boards, lists, and cards, you can use Trello for anything.\n\nSet up your free Trello account to continue managing your project!";
+
+/** "Increase Productivity */
+
+/* Text shown on a button as a type of project you might want to do in Trello. Will then allow you to build a Trello board to increase productivity. */
+"project_increase_productivity"="Increase Productivity";
+
+/* Title shown on the screen that is going to help you make a productivity board with Trello */
+"project_increase_productivity_board_overlay_title"="Let Trello help you get more done";
+
+/* Text shown on the screen that is going to help you make a productivity board with Trello */
+"project_increase_productivity_board_overlay_subtitle"="Give your board a name related to what you’re working on.";
+
+/* The default board name that is used on a template to help you increase productivity in Trello */
+"project_increase_productivity_board_name"="Weekly To-Do’s";
+
+/* Title shown on the screen that is going to help you name your lists for a productivity board on Trello */
+"project_increase_productivity_list_overlay_title"="Get organized with lists!";
+
+/* Text shown on the screen that is going to help you name your lists for a productivity board on Trello */
+"project_increase_productivity_list_overlay_subtitle"="Lists help you organize your ideas, group tasks, manage the stages of projects and more!";
+
+/* The default 1st list name that is used on a template to help you increase productivity in Trello. Try to keep this short, it will not wrap. */
+"project_increase_productivity_list_1_name"="Projects";
+
+/* The default 2nd list name that is used on a template to help you increase productivity in Trello. Try to keep this short, it will not wrap. */
+"project_increase_productivity_list_2_name"="Today";
+
+/* The default 3rd list name that is used on a template to help you increase productivity in Trello. Try to keep this short, it will not wrap. */
+"project_increase_productivity_list_3_name"="Future";
+
+/* Title shown on the screen that is going to help you name your cards for a productivity board on Trello */
+"project_increase_productivity_card_overlay_title"="Clear your mind with Cards";
+
+/* Text shown on the screen that is going to help you name your cards for a productivity board on Trello */
+"project_increase_productivity_card_overlay_subtitle"="Create cards for all of your to-do’s, projects, and ideas.";
+
+/* The default 1st card name that is used on a template to help you increase productivity in Trello. This means the same as "Write document" or "Write text" -- copy is a noun that means "text" */
+"project_increase_productivity_card_1_name"="Write copy";
+
+/* The default 2nd card name that is used on a template to help you increase productivity in Trello */
+"project_increase_productivity_card_2_name"="Outline roadmap";
+
+/* The default 3rd card name that is used on a template to help you increase productivity in Trello */
+"project_increase_productivity_card_3_name"="Prep for meeting";
+
+/* Title shown on the screen that is going to let you make the productivity board on Trello */
+"project_increase_productivity_create_overlay_title"="Way to go, Trello pro!";
+
+/* Text shown on the screen that is going to let you make the productivity board on Trello */
+"project_increase_productivity_create_overlay_subtitle"="Now that you understand how boards, lists, and cards work, you can use Trello to get anything done!\n\nSet up your free Trello account to start checking things off your to-do list!";
+
+
+/** "Something Else */
+
+/* Text shown on a button as a type of project you might want to do in Trello. Will then allow you to build a Trello board to do "something else" - a generic board. */
+"project_something_else"="Something Else";
+
+/* Title shown on the screen that is going to help you make a generic board with Trello */
+"project_something_else_board_overlay_title"="Let Trello help you organize any of life’s projects.";
+
+/* Text shown on the screen that is going to help you make a generic board with Trello */
+"project_something_else_board_overlay_subtitle"="Name your board for a project you want to accomplish.";
+
+/* The default board name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders */
+"project_something_else_board_name"="Order Manager";
+
+/* Title shown on the screen that is going to help you name your lists for a generic board on Trello */
+"project_something_else_list_overlay_title"="Get organized with lists!";
+
+/* Text shown on the screen that is going to help you name your lists for a generic board on Trello */
+"project_something_else_list_overlay_subtitle"="Lists help you organize your ideas, group tasks, manage the stages of projects and more!";
+
+/* The default 1st list name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders. Try to keep this short, it will not wrap. */
+"project_something_else_list_1_name"="Orders";
+
+/* The default 2nd list name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders . Try to keep this short, it will not wrap. */
+"project_something_else_list_2_name"="Shipped";
+
+/* The default 3rd list name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders . Try to keep this short, it will not wrap. */
+"project_something_else_list_3_name"="Delivered";
+
+/* Title shown on the screen that is going to help you name your cards for a generic board on Trello */
+"project_something_else_card_overlay_title"="Break down big projects into bite-sized tasks with cards";
+
+/* Text shown on the screen that is going to help you name your cards for a generic board on Trello */
+"project_something_else_card_overlay_subtitle"="Make cards for things you need to do or remember!";
+
+/* The default 1st card name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders - the card is an order #  */
+"project_something_else_card_1_name"="Order #3143";
+
+/* The default 2nd card name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders  - the card is an order # */
+"project_something_else_card_2_name"="Order #3144";
+
+/* The default 3rd card name that is used on a template to help you do "something else" - a generic board in Trello -- this board manages shipping orders  - the card is an order # */
+"project_something_else_card_3_name"="Order #3145";
+
+/* Title shown on the screen that is going to let you make the generic board on Trello */
+"project_something_else_create_overlay_title"="Way to go, Trello pro!";
+
+/* Text shown on the screen that is going to let you make the generic board on Trello */
+"project_something_else_create_overlay_subtitle"="Now that you understand how boards, lists, and cards work, you can use Trello to get anything done!\n\nSet up your free Trello account to continue organizing your board!";

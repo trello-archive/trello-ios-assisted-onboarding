@@ -29,6 +29,9 @@
 		B843D7AB22C5415F006136F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B843D7AA22C5415F006136F0 /* RxCocoa.framework */; };
 		B843D7AC22C5415F006136F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B843D7AA22C5415F006136F0 /* RxCocoa.framework */; };
 		B8F6EB5322C54FD800ECD75D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F6EB5222C54FD800ECD75D /* Utils.swift */; };
+		B8F6EB5522C554BE00ECD75D /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F6EB5422C554BE00ECD75D /* UIViewController+Rx.swift */; };
+		B8F6EB5722C556A800ECD75D /* RxKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F6EB5622C556A800ECD75D /* RxKeyboard.swift */; };
+		B8F6EB5922C55D6800ECD75D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8F6EB5822C55D6800ECD75D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		B843D7A722C54101006136F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../../../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B843D7AA22C5415F006136F0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../../../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B8F6EB5222C54FD800ECD75D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B8F6EB5422C554BE00ECD75D /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		B8F6EB5622C556A800ECD75D /* RxKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxKeyboard.swift; sourceTree = "<group>"; };
+		B8F6EB5822C55D6800ECD75D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,8 @@
 		B843D75C22C52A61006136F0 /* TrelloAssistedOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B8F6EB5622C556A800ECD75D /* RxKeyboard.swift */,
+				B8F6EB5422C554BE00ECD75D /* UIViewController+Rx.swift */,
 				B843D79B22C53ED7006136F0 /* Frameworks */,
 				B843D77D22C53257006136F0 /* Onboarding */,
 				B843D75D22C52A61006136F0 /* AppDelegate.swift */,
@@ -118,6 +126,7 @@
 				B843D76622C52A62006136F0 /* LaunchScreen.storyboard */,
 				B843D76922C52A62006136F0 /* Info.plist */,
 				B8F6EB5222C54FD800ECD75D /* Utils.swift */,
+				B8F6EB5822C55D6800ECD75D /* Localizable.strings */,
 			);
 			path = TrelloAssistedOnboarding;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B843D76822C52A62006136F0 /* LaunchScreen.storyboard in Resources */,
+				B8F6EB5922C55D6800ECD75D /* Localizable.strings in Resources */,
 				B843D76522C52A62006136F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,8 +291,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				IRxSwift.framework,
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/RxCocoa.framework",
 			);
 			name = "Carthage Frameworks";
 			outputFileListPaths = (
@@ -303,11 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B843D78E22C5337E006136F0 /* FlowStates.swift in Sources */,
+				B8F6EB5722C556A800ECD75D /* RxKeyboard.swift in Sources */,
 				B843D78822C53376006136F0 /* Stylesheet.swift in Sources */,
 				B843D78722C53376006136F0 /* BoardTemplatePickerViewController.swift in Sources */,
 				B843D78C22C53376006136F0 /* OnboardingViewController.swift in Sources */,
 				B843D75E22C52A61006136F0 /* AppDelegate.swift in Sources */,
 				B8F6EB5322C54FD800ECD75D /* Utils.swift in Sources */,
+				B8F6EB5522C554BE00ECD75D /* UIViewController+Rx.swift in Sources */,
 				B843D78922C53376006136F0 /* BoardTemplate.swift in Sources */,
 				B843D79822C5338A006136F0 /* CardView.swift in Sources */,
 				B843D79622C5338A006136F0 /* RoundedBorderedTextField.swift in Sources */,

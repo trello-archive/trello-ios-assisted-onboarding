@@ -40,29 +40,30 @@ class BoardContentView: UIView {
             let listView = ListView(list)
             listViews.append(listView)
             self.addAutoLaidOutSubview(listView)
-            listView.topAnchor |== listTopAnchor |+ stylesheet.gridUnit * 2
+            listView.topAnchor.constraint(equalTo: listTopAnchor, constant: stylesheet.gridUnit * 2).isActive = true
 
             if let previousListView = previousListView {
-                listView.leadingAnchor |== previousListView.trailingAnchor |+ stylesheet.listSpacing
-                listView.widthAnchor |== previousListView.widthAnchor |* 1
+                listView.leadingAnchor.constraint(equalTo: previousListView.trailingAnchor, constant: stylesheet.listSpacing).isActive = true
+                listView.widthAnchor.constraint(equalTo: previousListView.widthAnchor).isActive = true
             } else {
-                listView.leadingAnchor |== self.leadingAnchor |+ stylesheet.listOuterMargin
-                self.firstListViewWidthConstraint = listView.widthAnchor |== stylesheet.listZoomedInWidth
+                listView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stylesheet.listOuterMargin).isActive = true
+                self.firstListViewWidthConstraint = listView.widthAnchor.constraint(equalToConstant: stylesheet.listZoomedInWidth)
+                self.firstListViewWidthConstraint.isActive = true
             }
             previousListView = listView
 
             // Make the board big enough to show each list
-            self.bottomAnchor |>= listView.bottomAnchor |+ stylesheet.gridUnit
+            self.bottomAnchor.constraint(greaterThanOrEqualTo: listView.bottomAnchor, constant: stylesheet.gridUnit).isActive = true
         }
         
         if let previousListView = previousListView {
-            previousListView.trailingAnchor |== self.trailingAnchor |- stylesheet.listOuterMargin
+            previousListView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -stylesheet.listOuterMargin).isActive = true
         }
     }
 
 }
 
-/// A view to show a Trello-like board in the Mad Libs UI.
+/// A view to show a Trello-like board.
 class BoardView: UIScrollView {
     @available(*, unavailable) required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -98,13 +99,13 @@ class BoardView: UIScrollView {
         self.nameTextField.returnKeyType = .done
         self.nameTextField.accessibilityLabel = "board_name_text_field_accessibility".localized
 
-        self.nameTextField.topAnchor |== self.topAnchor |+ (stylesheet.gridUnit * 2)
+        self.nameTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: (stylesheet.gridUnit * 2)).isActive = true
         
         // nameTextField tries to stay in place as the board scrolls
-        self.nameTextField.leadingAnchor |== self.frameLayoutGuide.leadingAnchor |+ stylesheet.boardNameMargin
+        self.nameTextField.leadingAnchor.constraint(equalTo: self.frameLayoutGuide.leadingAnchor, constant: stylesheet.boardNameMargin).isActive = true
         
         // nameTextField shouldn't be wider than his parents width
-        self.nameTextField.widthAnchor |== self.frameLayoutGuide.widthAnchor |- stylesheet.boardNameMargin * 2
+        self.nameTextField.widthAnchor.constraint(equalTo: self.frameLayoutGuide.widthAnchor, constant: -stylesheet.boardNameMargin * 2).isActive = true
         
         // Set the top of the lists to under the name
         self.boardContentView.listTopAnchor = self.nameTextField.bottomAnchor
@@ -113,14 +114,14 @@ class BoardView: UIScrollView {
         self.insertAutoLaidOutSubview(self.boardContentView, at: 0)
 
         // The lists will set the size of the board. Use that to set the content size.
-        self.boardContentView.topAnchor |== self.contentLayoutGuide.topAnchor
-        self.boardContentView.bottomAnchor |== self.contentLayoutGuide.bottomAnchor
+        self.boardContentView.topAnchor.constraint(equalTo: self.contentLayoutGuide.topAnchor).isActive = true
+        self.boardContentView.bottomAnchor.constraint(equalTo: self.contentLayoutGuide.bottomAnchor).isActive = true
 
-        self.boardContentView.leadingAnchor |== self.contentLayoutGuide.leadingAnchor
-        self.boardContentView.trailingAnchor |== self.contentLayoutGuide.trailingAnchor
+        self.boardContentView.leadingAnchor.constraint(equalTo: self.contentLayoutGuide.leadingAnchor).isActive = true
+        self.boardContentView.trailingAnchor.constraint(equalTo: self.contentLayoutGuide.trailingAnchor).isActive = true
 
         // Set the name to scroll with the board if forced.
-        self.nameTextField.leadingAnchor |== self.frameLayoutGuide.leadingAnchor |+ stylesheet.boardNameMargin
+        self.nameTextField.leadingAnchor.constraint(equalTo: self.frameLayoutGuide.leadingAnchor, constant: stylesheet.boardNameMargin).isActive = true
         
         self.configureFonts()
         

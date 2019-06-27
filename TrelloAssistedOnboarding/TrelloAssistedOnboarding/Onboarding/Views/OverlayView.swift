@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// A view that shows instructions to the user on what they need to do at a point in the Mad Libs onboarding process.
+/// A view that shows instructions to the user on what they need to do at a point in the onboarding process.
 /// It looks like a round-rect white overlay that is approximately keyboard (or bigger sized) and meant to be flush
 /// with the bottom of the device. Underneath, you can see the board you are building (BoardView).
 class OverlayView: UIView {
@@ -81,17 +81,17 @@ class OverlayView: UIView {
         // Add a vertical scrollview that is full-view in the overlay, below the rounded-rect top (overlay safe-area)
         let scrollView = UIScrollView(frame: .zero)
         self.addAutoLaidOutSubview(scrollView)
-        scrollView.leadingAnchor |== self.leadingAnchor
-        scrollView.trailingAnchor |== self.trailingAnchor
-        scrollView.topAnchor |== self.topAnchor |+ (stylesheet.overlayCornerRadius + stylesheet.gridUnit)
-        scrollView.bottomAnchor |== self.safeAreaLayoutGuide.bottomAnchor
-        scrollView.widthAnchor |== scrollView.contentLayoutGuide.widthAnchor |* 1
+        scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: (stylesheet.overlayCornerRadius + stylesheet.gridUnit)).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: scrollView.contentLayoutGuide.widthAnchor).isActive = true
 
         scrollView.addAutoLaidOutSubview(self.contentView)
-        scrollView.contentLayoutGuide.leadingAnchor |== self.contentView.leadingAnchor
-        scrollView.contentLayoutGuide.trailingAnchor |== self.contentView.trailingAnchor
-        scrollView.contentLayoutGuide.topAnchor |== self.contentView.topAnchor
-        scrollView.contentLayoutGuide.bottomAnchor |== self.contentView.bottomAnchor
+        scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
     }
 }
 
@@ -100,7 +100,7 @@ class ScrollableContentView: UIView {
     @available(*, unavailable) required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     let step: OverlayStep
-    let goButton = FCTRoundedRectButton()
+    let goButton = UIButton(type: .roundedRect)// FCTRoundedRectButton() TODO
     let skipButton = UIButton(type: .roundedRect)
     let titleLabel = UILabel(frame: .zero)
     let subtitleLabel = UILabel(frame: .zero)
@@ -120,9 +120,9 @@ class ScrollableContentView: UIView {
         titleLabel.textAlignment = .center
         titleLabel.adjustsFontForContentSizeCategory = true
 
-        titleLabel.topAnchor |== self.topAnchor
-        titleLabel.centerXAnchor |== self.centerXAnchor
-        titleLabel.leadingAnchor |== self.leadingAnchor |+ stylesheet.overlayOuterSideMargin
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stylesheet.overlayOuterSideMargin).isActive = true
 
         self.addAutoLaidOutSubview(subtitleLabel)
         subtitleLabel.accessibilityLabel = overlayTemplate.subtitle
@@ -132,23 +132,40 @@ class ScrollableContentView: UIView {
         subtitleLabel.textAlignment = .center
         subtitleLabel.adjustsFontForContentSizeCategory = true
 
-        subtitleLabel.topAnchor |== titleLabel.bottomAnchor |+ stylesheet.gridUnit
-        subtitleLabel.centerXAnchor |== self.centerXAnchor
-        subtitleLabel.leadingAnchor |== titleLabel.leadingAnchor
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: stylesheet.gridUnit).isActive = true
+        subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
 
         self.addAutoLaidOutSubview(goButton)
         goButton.setTitle(step.goButtonText, for: .normal)
         goButton.setTitleColor(stylesheet.overlayGoButtonTextColor, for: .normal)
-        goButton.tintColor = stylesheet.overlayGoButtonBackgroundColor
+        goButton.setTitleColor(stylesheet.overlayDisabledGoButtonBackgroundColor, for: .disabled)
+        goButton.backgroundColor = stylesheet.overlayGoButtonBackgroundColor
+        goButton.layer.cornerRadius = 5.0;
         goButton.titleLabel?.numberOfLines = 0
         goButton.titleLabel?.textAlignment = .center
         goButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        goButton.isProminent = true
 
-        goButton.topAnchor |== subtitleLabel.bottomAnchor |+ (3 * stylesheet.gridUnit)
-        goButton.centerXAnchor |== subtitleLabel.centerXAnchor
-        goButton.leadingAnchor |== subtitleLabel.leadingAnchor
-        goButton.titleLabel?.heightAnchor ?|== goButton.heightAnchor ?|- (4 * stylesheet.gridUnit)
+        goButton.rx
+            .observeWeakly(Bool.self, #keyPath(UIButton.isEnabled))
+            .subscribe(onNext: { [weak self] enabled in
+                guard let enabled = enabled, let strongSelf = self else { return }
+                if enabled {
+                    strongSelf.goButton.backgroundColor = strongSelf.stylesheet.overlayGoButtonBackgroundColor
+                    strongSelf.goButton.layer.borderWidth = 0.0
+                    strongSelf.goButton.layer.borderColor = nil
+                } else {
+                    strongSelf.goButton.backgroundColor = UIColor.white
+                    strongSelf.goButton.layer.borderWidth = 1.0
+                    strongSelf.goButton.layer.borderColor = strongSelf.stylesheet.overlayDisabledGoButtonBackgroundColor.cgColor
+                }
+            })
+            .disposed(by: self.disposeBag)
+
+        goButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: (3 * stylesheet.gridUnit)).isActive = true
+        goButton.centerXAnchor.constraint(equalTo: subtitleLabel.centerXAnchor).isActive = true
+        goButton.leadingAnchor.constraint(equalTo: subtitleLabel.leadingAnchor).isActive = true
+        goButton.titleLabel?.heightAnchor.constraint(equalTo: goButton.heightAnchor, constant: -(4 * stylesheet.gridUnit)).isActive = true
 
         if let skipButtonText = step.skipButtonText {
             self.addAutoLaidOutSubview(skipButton)
@@ -159,13 +176,13 @@ class ScrollableContentView: UIView {
             skipButton.titleLabel?.textAlignment = .center
             skipButton.titleLabel?.adjustsFontForContentSizeCategory = true
 
-            skipButton.topAnchor |== goButton.bottomAnchor |+ stylesheet.gridUnit
-            skipButton.centerXAnchor |== subtitleLabel.centerXAnchor
-            skipButton.leadingAnchor |== subtitleLabel.leadingAnchor
-            skipButton.titleLabel?.heightAnchor ?|== skipButton.heightAnchor ?|- (4 * stylesheet.gridUnit)
-            skipButton.bottomAnchor |== self.bottomAnchor |- stylesheet.gridUnit
+            skipButton.topAnchor.constraint(equalTo: goButton.bottomAnchor, constant: stylesheet.gridUnit).isActive = true
+            skipButton.centerXAnchor.constraint(equalTo: subtitleLabel.centerXAnchor).isActive = true
+            skipButton.leadingAnchor.constraint(equalTo: subtitleLabel.leadingAnchor).isActive = true
+            skipButton.titleLabel?.heightAnchor.constraint(equalTo: skipButton.heightAnchor, constant: -(4 * stylesheet.gridUnit)).isActive = true
+            skipButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -stylesheet.gridUnit).isActive = true
         } else {
-            goButton.bottomAnchor |== self.bottomAnchor |- stylesheet.gridUnit
+            goButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -stylesheet.gridUnit).isActive = true
         }
     
         self.configureFonts()

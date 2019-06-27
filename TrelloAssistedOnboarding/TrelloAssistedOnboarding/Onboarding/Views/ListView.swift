@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/// A view for showing a Trello-like list with cards in the Mad Libs onboarding UI.
+/// A view for showing a Trello-like list with cards in the onboarding UI.
 class ListView: UIView {
     @available(*, unavailable) required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -28,7 +28,7 @@ class ListView: UIView {
         }
     }
     
-    /// Creates a Mad Libs list with a given name and number of cards
+    /// Creates a list with a given name and number of cards
     /// - Parameters:
     ///     - name: the name of the list
     ///     - numCards: the number of cards to create for the list
@@ -44,15 +44,15 @@ class ListView: UIView {
         self.nameTextField.textAlignment = .natural
         self.nameTextField.adjustsFontForContentSizeCategory = true
         self.nameTextField.returnKeyType = .done
-        self.nameTextField.topAnchor |== self.topAnchor |+ stylesheet.gridUnit
-        self.nameTextField.leadingAnchor |== self.leadingAnchor |+ stylesheet.gridUnit
-        self.nameTextField.trailingAnchor |== self.trailingAnchor |- stylesheet.gridUnit
+        self.nameTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: stylesheet.gridUnit).isActive = true
+        self.nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stylesheet.gridUnit).isActive = true
+        self.nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -stylesheet.gridUnit).isActive = true
 
         self.addAutoLaidOutSubview(self.namePlaceholder)
-        self.namePlaceholder.leadingAnchor |== self.nameTextField.leadingAnchor |+ self.nameTextField.insetDelta
-        self.namePlaceholder.widthAnchor |== self.nameTextField.widthAnchor |* 0.40
-        self.namePlaceholder.topAnchor |== self.nameTextField.topAnchor |+ self.nameTextField.insetDelta
-        self.namePlaceholder.bottomAnchor |== self.nameTextField.bottomAnchor |- self.nameTextField.insetDelta
+        self.namePlaceholder.leadingAnchor.constraint(equalTo: self.nameTextField.leadingAnchor, constant: self.nameTextField.insetDelta).isActive = true
+        self.namePlaceholder.widthAnchor.constraint(equalTo: self.nameTextField.widthAnchor, multiplier: 0.40).isActive = true
+        self.namePlaceholder.topAnchor.constraint(equalTo: self.nameTextField.topAnchor, constant: self.nameTextField.insetDelta).isActive = true
+        self.namePlaceholder.bottomAnchor.constraint(equalTo: self.nameTextField.bottomAnchor, constant: -self.nameTextField.insetDelta).isActive = true
         self.namePlaceholder.backgroundColor = UIColor.nachosShades300
         self.namePlaceholder.layer.cornerRadius = 6.0
 
@@ -60,10 +60,10 @@ class ListView: UIView {
         self.cardStackView.axis = .vertical
         self.cardStackView.spacing = stylesheet.gridUnit * 2
 
-        self.cardStackView.leadingAnchor |== self.leadingAnchor |+ (stylesheet.gridUnit * 2)
-        self.cardStackView.topAnchor |== self.nameTextField.bottomAnchor |+ stylesheet.gridUnit
-        self.cardStackView.trailingAnchor |== self.trailingAnchor |- (stylesheet.gridUnit * 2)
-        self.cardStackView.bottomAnchor |== self.bottomAnchor |- (stylesheet.gridUnit * 2)
+        self.cardStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (stylesheet.gridUnit * 2)).isActive = true
+        self.cardStackView.topAnchor.constraint(equalTo: self.nameTextField.bottomAnchor, constant: stylesheet.gridUnit).isActive = true
+        self.cardStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(stylesheet.gridUnit * 2)).isActive = true
+        self.cardStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(stylesheet.gridUnit * 2)).isActive = true
 
         setupCards()
 

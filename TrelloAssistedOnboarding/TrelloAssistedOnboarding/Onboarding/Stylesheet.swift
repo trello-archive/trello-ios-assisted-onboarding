@@ -60,6 +60,7 @@ class Stylesheet {
     
     lazy var overlayGoButtonTextColor = UIColor.white
     lazy var overlayGoButtonBackgroundColor = UIColor.trelloGreen700
+    lazy var overlayDisabledGoButtonBackgroundColor = UIColor.trelloShade600
     
     lazy var overlaySkipButtonTextColor = UIColor.trelloShade500
     lazy var overlaySkipButtonBackgroundColor: UIColor? = nil
