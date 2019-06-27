@@ -28,6 +28,7 @@
 		B843D7A922C54101006136F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B843D7A722C54101006136F0 /* RxSwift.framework */; };
 		B843D7AB22C5415F006136F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B843D7AA22C5415F006136F0 /* RxCocoa.framework */; };
 		B843D7AC22C5415F006136F0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B843D7AA22C5415F006136F0 /* RxCocoa.framework */; };
+		B8F6EB5322C54FD800ECD75D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F6EB5222C54FD800ECD75D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		B843D79422C5338A006136F0 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		B843D7A722C54101006136F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../../../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B843D7AA22C5415F006136F0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../../../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		B8F6EB5222C54FD800ECD75D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				B843D76422C52A62006136F0 /* Assets.xcassets */,
 				B843D76622C52A62006136F0 /* LaunchScreen.storyboard */,
 				B843D76922C52A62006136F0 /* Info.plist */,
+				B8F6EB5222C54FD800ECD75D /* Utils.swift */,
 			);
 			path = TrelloAssistedOnboarding;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				B843D78722C53376006136F0 /* BoardTemplatePickerViewController.swift in Sources */,
 				B843D78C22C53376006136F0 /* OnboardingViewController.swift in Sources */,
 				B843D75E22C52A61006136F0 /* AppDelegate.swift in Sources */,
+				B8F6EB5322C54FD800ECD75D /* Utils.swift in Sources */,
 				B843D78922C53376006136F0 /* BoardTemplate.swift in Sources */,
 				B843D79822C5338A006136F0 /* CardView.swift in Sources */,
 				B843D79622C5338A006136F0 /* RoundedBorderedTextField.swift in Sources */,
