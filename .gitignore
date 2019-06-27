@@ -1,0 +1,36 @@
+
+# os x finder
+.DS_Store
+
+# xcode 3
+*.mode1v3
+*.pbxuser
+
+# xcode 4
+xcuserdata
+
+# xcode 5
+# xcshareddata - We actually do want xcshareddata, it is meant to be shared. -Don
+*.xccheckout
+*.xcscmblueprint
+
+# svn
+.svn
+
+# emacs backup files
+*~
+
+# build directory
+build
+
+# some artifacts
+*.o
+*.lev
+
+# fastlane specific
+fastlane/report.xml
+fastlane/README.md
+
+# Dependencies
+**/Carthage
+**/Vendor
