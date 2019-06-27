@@ -43,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B843D7AB22C5415F006136F0 /* RxCocoa.framework in Frameworks */,
+				B843D7A822C54101006136F0 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B843D7AC22C5415F006136F0 /* RxCocoa.framework in Frameworks */,
+				B843D7A922C54101006136F0 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +196,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B843D7A622C54090006136F0 /* Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				IRxSwift.framework,
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			name = "Carthage Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B843D75622C52A61006136F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B843D76022C52A61006136F0 /* ViewController.swift in Sources */,
+				B843D78E22C5337E006136F0 /* FlowStates.swift in Sources */,
+				B843D78822C53376006136F0 /* Stylesheet.swift in Sources */,
+				B843D78722C53376006136F0 /* BoardTemplatePickerViewController.swift in Sources */,
+				B843D78C22C53376006136F0 /* OnboardingViewController.swift in Sources */,
 				B843D75E22C52A61006136F0 /* AppDelegate.swift in Sources */,
+				B843D78922C53376006136F0 /* BoardTemplate.swift in Sources */,
+				B843D79822C5338A006136F0 /* CardView.swift in Sources */,
+				B843D79622C5338A006136F0 /* RoundedBorderedTextField.swift in Sources */,
+				B843D79522C5338A006136F0 /* OverlayViewGestureController.swift in Sources */,
+				B843D79922C5338A006136F0 /* ListView.swift in Sources */,
+				B843D79722C5338A006136F0 /* OverlayView.swift in Sources */,
+				B843D79A22C5338A006136F0 /* BoardView.swift in Sources */,
+				B843D78B22C53376006136F0 /* OnboardingViewModel.swift in Sources */,
+				B843D78A22C53376006136F0 /* FlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E398N47F4R;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = TrelloAssistedOnboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,6 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E398N47F4R;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = TrelloAssistedOnboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +442,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E398N47F4R;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS";
 				INFOPLIST_FILE = TrelloAssistedOnboardingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,6 +464,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E398N47F4R;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS";
 				INFOPLIST_FILE = TrelloAssistedOnboardingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
