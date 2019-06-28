@@ -26,7 +26,7 @@ Usage
 
 This app shows a Trello board with a guidance overlay. If you tap the green button on any overlay, it will give focus to the text field it is describing and once you complete editing, you will be moved to the next step in the process.
 
-![Onboarding screenshot](README-images/tao-iphone.png "Onboarding screenshot")
+![Onboarding screenshot](README-images/tao-iphone.gif "Onboarding screenshot")
 
 Once you learn about something, you are allowed to interact with it any time later in the process.  The assisted onboarding will progress through the board name, list names, and card names -- finally it will let you create the board.  In this sample code, the last green button does nothing (in Trello, it would create the board and take you to it)
 
