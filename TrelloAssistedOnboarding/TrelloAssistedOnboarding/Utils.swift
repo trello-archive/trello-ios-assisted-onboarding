@@ -28,7 +28,7 @@ extension UIColor {
 
     static let trelloSky50 = UIColor(red: 0.894, green: 0.969, blue: 0.980, alpha: 1)
 
-    static let trelloShade200 = UIColor(red: 0.894, green: 0.969, blue: 0.980, alpha: 1)
+    static let trelloShade200 = UIColor(red: 0.886, green: 0.894, blue: 0.902, alpha: 1)
     static let trelloShade300 = UIColor(red: 0.886, green: 0.894, blue: 0.902, alpha: 1)
     static let trelloShade500 = UIColor(red: 0.514, green: 0.549, blue: 0.569, alpha: 1)
     static let trelloShade600 = UIColor(red: 0.404, green: 0.427, blue: 0.439, alpha: 1)
