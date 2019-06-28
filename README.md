@@ -173,3 +173,7 @@ self.cardTitleOverlaySkipButtonTap = PublishSubject<Void>()
 ```
 
 We can mock the entire VC by just publishing updates on these subjects -- then check the Output Drivers to make sure they are as expected.
+
+Here's the onboarding screen on a variety of devices, dynamic type sizes, and languages
+
+![Onboarding on different devices](README-images/tao-sims.png "Onboarding on different devices")
