@@ -10,7 +10,7 @@
 		B843D75E22C52A61006136F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843D75D22C52A61006136F0 /* AppDelegate.swift */; };
 		B843D76522C52A62006136F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B843D76422C52A62006136F0 /* Assets.xcassets */; };
 		B843D76822C52A62006136F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B843D76622C52A62006136F0 /* LaunchScreen.storyboard */; };
-		B843D77322C52A62006136F0 /* TrelloAssistedOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843D77222C52A62006136F0 /* TrelloAssistedOnboardingTests.swift */; };
+		B843D77322C52A62006136F0 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843D77222C52A62006136F0 /* OnboardingViewModelTests.swift */; };
 		B843D78722C53376006136F0 /* BoardTemplatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843D78122C53376006136F0 /* BoardTemplatePickerViewController.swift */; };
 		B843D78822C53376006136F0 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843D78222C53376006136F0 /* Stylesheet.swift */; };
 		B843D78922C53376006136F0 /* BoardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843D78322C53376006136F0 /* BoardTemplate.swift */; };
@@ -51,7 +51,7 @@
 		B843D76722C52A62006136F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B843D76922C52A62006136F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B843D76E22C52A62006136F0 /* TrelloAssistedOnboardingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrelloAssistedOnboardingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B843D77222C52A62006136F0 /* TrelloAssistedOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrelloAssistedOnboardingTests.swift; sourceTree = "<group>"; };
+		B843D77222C52A62006136F0 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
 		B843D77422C52A62006136F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B843D78122C53376006136F0 /* BoardTemplatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTemplatePickerViewController.swift; sourceTree = "<group>"; };
 		B843D78222C53376006136F0 /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		B843D77122C52A62006136F0 /* TrelloAssistedOnboardingTests */ = {
 			isa = PBXGroup;
 			children = (
-				B843D77222C52A62006136F0 /* TrelloAssistedOnboardingTests.swift */,
+				B843D77222C52A62006136F0 /* OnboardingViewModelTests.swift */,
 				B843D77422C52A62006136F0 /* Info.plist */,
 			);
 			path = TrelloAssistedOnboardingTests;
@@ -336,7 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B843D77322C52A62006136F0 /* TrelloAssistedOnboardingTests.swift in Sources */,
+				B843D77322C52A62006136F0 /* OnboardingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +523,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E398N47F4R;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = TrelloAssistedOnboardingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,7 +545,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E398N47F4R;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = TrelloAssistedOnboardingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
