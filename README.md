@@ -33,7 +33,7 @@ Once you learn about something, you are allowed to interact with it any time lat
 Basic Architecture
 ------------------
 
-The main two classes to look at are `OnboardingViewController` and `OnboardingViewModel`.  Together they implement Model-View-ViewModel using a Reactive style. 
+The main two classes to look at are `OnboardingViewController` and `OnboardingViewModel`.  Together they implement Model-View-ViewModel using a Reactive style.  The pattern we describe below is heavily influenced by [RxSwift + MVVM: how to feed ViewModels](https://medium.com/blablacar-tech/rxswift-mvvm-66827b8b3f10) by Martin Moizard.
 
 Responsibilities of `OnboardingViewController`
 
