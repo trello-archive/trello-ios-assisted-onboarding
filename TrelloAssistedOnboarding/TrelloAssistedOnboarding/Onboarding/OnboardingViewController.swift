@@ -348,9 +348,6 @@ class OnboardingViewController: UIViewController {
         
         rightNavForOverlaySkipButton.setTitle("skip_button".localized, for: .normal)
 
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightNavForEditingButton),
-                                              UIBarButtonItem(customView: rightNavForOverlaySkipButton)]
-        
         self.view.backgroundColor = stylesheet.mainBackgroundColor
         
         self.view.addAutoLaidOutSubview(self.boardView)
@@ -491,6 +488,9 @@ class OnboardingViewController: UIViewController {
                 item.customView == button
             })
         } else {
+            if self.navigationItem.rightBarButtonItems == nil {
+                self.navigationItem.rightBarButtonItems = []
+            }
             self.navigationItem.rightBarButtonItems?.append(UIBarButtonItem(customView: button))
         }
         

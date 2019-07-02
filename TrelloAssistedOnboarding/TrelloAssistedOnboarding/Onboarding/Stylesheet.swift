@@ -76,6 +76,7 @@ class Stylesheet {
         let trelloLogo = UIImage(named: "logo-trello")!.withRenderingMode(.alwaysTemplate)
         let logoImageView = UIImageView(image: trelloLogo)
         logoImageView.tintColor = self.navTrelloLogoColor
+        logoImageView.contentMode = .scaleAspectFit
         return logoImageView
     }
     
